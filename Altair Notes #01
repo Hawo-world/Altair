@@ -1,0 +1,87 @@
+import pandas as pd
+from pydataset import data
+df=data ("Duncan")
+df . head()
+
+
+import altair as alt
+alt.Chart(df). mark_bar() . encode(
+x= "type",
+y = "prestige"
+)
+
+alt.Chart(df).mark_circle() . encode(
+x= "education"
+y + "prestige"
+)
+
+
+Color
+
+alt.Chart(df).mark_circle() . encode(
+    x="education" ,
+    y = "prestige" ,
+    color=' type '
+)
+
+
+
+Size & Color 
+
+alt.Chart(df) .mark_circle() . encode(
+    x= "education" ,
+    y = "prestige" ,
+    color=' type' ,
+    size="income"
+)
+
+
+Regression
+
+import pandas as pd
+import numpy as np
+
+chart = alt.Chart(df) .mark-point() .encode(
+    x=' education' ,
+    y=' prestige' ,
+    color=' type : N' ,
+    tooltip=' icome'
+)
+chart+chart.transform_regression('education', 'prestige') .mark_lines()
+
+
+
+Multiple Plots 
+
+educationPlot=alt.Chart(df).mark_circle() .encode(
+      x= "eduction" ,
+      y = "restige" ,
+      color=' type' ,
+)
+incomePlot+alt.Chart(df) .mark_corcle() .encode(
+      x= "income" ,
+      y = "prestige" ,
+      color=' type' ,
+)
+educationPlot  |  incomePlot
+
+
+
+HTML interactive Plot 
+
+interact_plot=alt.Chart(df) .mark_corcle() .encode(
+      x= "education" ,
+      y = "prestige" ,
+      color=' type' ,
+      tooltip=[ " income" ]
+)
+interact_plot.save('interact_plot.html',embed_options={ ' render ' : ' dvg' , 'actions' :False})
+
+interact_plot
+
+
+
+
+Bibliography:
+
+https://youtu.be/WcRWkpk0TZk?si=f_r0SXpI7AyHYZYU
